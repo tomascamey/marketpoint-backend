@@ -9,7 +9,7 @@ import { JwtStrategy } from './jwt.strategy';
   imports: [
     UsersModule,
     JwtModule.register({
-      secret: 'LLAVE_SUPER_SECRETA_MARKETPOINT',
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '8h' },
     }),
   ],
