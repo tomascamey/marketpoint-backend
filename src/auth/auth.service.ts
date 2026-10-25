@@ -6,7 +6,7 @@ import { OAuth2Client } from 'google-auth-library';
 
 @Injectable()
 export class AuthService {
-  private googleClient = new OAuth2Client('1067075981704-bie6th3hlame87dcgr8a3g1prg3lcdke.apps.googleusercontent.com');
+  private googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
   constructor(
     private usersService: UsersService,
@@ -42,7 +42,7 @@ export class AuthService {
     try {
       const ticket = await this.googleClient.verifyIdToken({
         idToken: token,
-        audience: '1067075981704-bie6th3hlame87dcgr8a3g1prg3lcdke.apps.googleusercontent.com',
+        audience: process.env.GOOGLE_CLIENT_ID,
       });
       const googlePayload = ticket.getPayload();
       
