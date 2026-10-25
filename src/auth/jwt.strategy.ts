@@ -9,7 +9,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       // Le decimos que busque el token en la cabecera (Header) de la petición
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: process.env.JWT_SECRET, // Debe ser idéntica a la que pusimos en auth.module
+     secretOrKey: process.env.JWT_SECRET as string,// Debe ser idéntica a la que pusimos en auth.module
     });
   }
 
