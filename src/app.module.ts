@@ -14,7 +14,7 @@ import { ProspectsModule } from './prospects/prospects.module'; // <-- Módulo i
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql', 
-      url: 'contraseña de la base de datos', 
+      url: process.env.DATABASE_URL,
       autoLoadEntities: true,
       synchronize: true,
       timezone: 'Z',
